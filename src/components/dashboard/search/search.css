@@ -1,0 +1,18 @@
+.search-flex{
+    @apply flex justify-start items-center gap-6 py-4 px-12 text-[var(--grey)] bg-[var(--darkgrey)] w-4/5 m-4 mx-auto rounded-[3rem];
+}
+.search-flex input{
+    @apply bg-[var(--darkgrey)] w-full font-["Inter"] text-[1.2rem] text-[var(--grey)] border-none;
+}
+.search-flex input:focus{
+    @apply outline-none
+}
+
+@media only screen and (max-width:800px){
+    .search-flex{
+        @apply w-[90%] px-4;
+    }
+    .search-flex input{
+        @apply text-[1rem]
+    }
+}

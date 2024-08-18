@@ -1,0 +1,51 @@
+.navbar{
+    @apply flex justify-between items-center px-12 py-6 bg-[var(--black)] sticky top-0 z-[100];
+}
+
+.navbar h1 span{
+    @apply text-[var(--blue)];
+}
+
+.logo{
+    @apply font-[1.2rem]
+}
+
+.links{
+    @apply flex justify-end items-center gap-6;
+}
+
+.link{
+    @apply text-[var(--grey)] font-[600] font-[1rem];
+}
+
+.link:hover{
+    transition: all 0.3s;
+    cursor: pointer;
+    color: var(--white)
+}
+
+.mobile-drawer{
+    @apply hidden;
+}
+
+.active{
+    color: var(--white)!important;
+}
+
+@media only screen and (max-width:800px){
+    .navbar{
+        @apply p-6
+    }
+    .logo{
+        @apply font-[1rem]
+    }
+    .links{
+        @apply hidden;
+    }
+    .mobile-drawer{
+        @apply block;
+    }
+    .drawer-div{
+        @apply w-[40vw] bg-[var(--black)] h-screen p-6 leading-10;
+    }
+}

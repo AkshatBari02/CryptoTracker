@@ -1,0 +1,61 @@
+.grid-container:hover{
+    border-color: var(--green);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.grid-container-red:hover{
+    border-color: var(--red) !important;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.watchlist-icon {
+    @apply flex justify-center items-center border-2 border-solid border-[var(--green)] rounded-[50%] text-[var(--green)] p-2 h-10;
+    width: 2.5rem !important;
+}
+  
+.watchlist-icon-red {
+    @apply border-2 border-solid border-[var(--red)] text-[var(--red)];
+}
+.chip-flex{
+    @apply flex justify-start gap-4 items-center mx-6 my-4
+}
+
+.price-chip{
+    @apply border-2 border-solid border-[var(--green)] rounded-[2rem] py-[0.35rem] px-5 text-center font-[600] text-[1.1rem] text-[var(--green)] min-w-24
+}
+.coin-price{
+    @apply text-[1.1rem]
+}
+.price-chip:hover,.icon-chip:hover{
+    background-color: var(--green);
+    cursor: pointer;
+    color: var(--white);
+    transition: all 0.3s;
+}
+
+.chip-red{
+    border: 2px solid var(--red) !important;
+    color: var(--red) !important;
+}
+.chip-red:hover{
+    background-color: var(--red) !important;
+    color: var(--white) !important;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.icon-chip{
+    @apply border-2 border-solid border-[var(--green)] rounded-[50%] flex justify-center items-center text-[var(--green)] text-[1.1rem];
+    height:2rem !important;
+    width: 2rem !important;
+}
+
+.info-container{
+    @apply m-6 flex flex-col gap-3
+}
+.info-container h3{
+    @apply text-[var(--green)] text-[1.2rem] font-[600]
+}
+
+.total-volume{
+    @apply text-[var(--grey)] text-[1.1rem] font-[600]
+}

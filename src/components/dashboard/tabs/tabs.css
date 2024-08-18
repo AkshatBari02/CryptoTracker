@@ -1,0 +1,32 @@
+.grid-flex{
+    @apply flex justify-center items-center flex-wrap gap-6 mx-8 my-6;
+}
+.list-table{
+    @apply w-[90%] block mx-auto
+}
+.tabs{
+    width: 50vw !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    font-family: "Inter" !important;
+    text-transform: capitalize !important;
+}
+.css-14qz5rk-MuiButtonBase-root-MuiTab-root {
+    color: var(--white) !important;
+}
+.css-14qz5rk-MuiButtonBase-root-MuiTab-root.Mui-selected{
+    color: var(--blue) !important;
+}
+@media only screen and (max-width:1200px){
+    .list-table{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:800px){
+    .list-table{
+        width: 100%;
+    }
+    .tabs{
+        font-size: 1rem !important;
+    }
+}
