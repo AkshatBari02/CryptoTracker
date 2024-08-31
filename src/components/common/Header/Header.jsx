@@ -12,7 +12,8 @@ const Header = () => {
   return (
     <div className='navbar'>
         <h1 className='logo'>
-            CryptoTracker<span>.</span>
+            <img src="logo.png" alt="LOGO" width={40} height={40}/>
+            CryptoTracker
         </h1>
         <div className="links">
             <Link to={'/'} className={`link ${isActive('/')}`}><p>Home</p></Link>
