@@ -3,6 +3,7 @@ import './Header.css';
 import AnchorTemporaryDrawer from './Drawer';
 import Button from '../Button/Button';
 import { Link, useLocation } from 'react-router-dom';
+import logo from './../../../assets/logo.png';
 
 const Header = () => {
   const location = useLocation();
@@ -12,7 +13,7 @@ const Header = () => {
   return (
     <div className='navbar'>
         <h1 className='logo'>
-            <img src="logo.png" alt="LOGO" width={40} height={40}/>
+            <img src={logo} alt="LOGO" width={40} height={40}/>
             CryptoTracker
         </h1>
         <div className="links">
