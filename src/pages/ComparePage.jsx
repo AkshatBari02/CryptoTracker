@@ -9,7 +9,7 @@ import Header from "../components/common/Header/Header";
 import SelectCoins from "../components/compare/selectCoins/SelectCoins";
 import List from "../components/dashboard/list/List";
 import LineChart from "../components/coin/lineChart/LineChart";
-import TogglePriceType from "../components/coin/priceType/Pricetype";
+import TogglePriceType from "../components/coin/priceType/PriceType";
 import CoinInfo from "../components/coin/coinInfo/CoinInfo";
 
 function Compare() {

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import { get200Coins } from '../../../functions/get200Coins';
 import SelectDays from '../../coin/selectDays/SelectDays';
 
 const SelectCoins = ({allCoins,
@@ -28,16 +27,6 @@ const SelectCoins = ({allCoins,
         },
       };
 
-    //   const getData = async()=>{
-    //     setLoading(true);
-    //     const myCoins = await get200Coins();
-    //     setLoading(false);
-    //     setAllCoins(myCoins);
-    //   }
-
-    //   useEffect(()=>{
-    //     getData();
-    //   },[]);
 
   return (
     <div className='flex justify-start items-center gap-6 mx-6 my-0'>

@@ -10,7 +10,7 @@ import { getCoinPrices } from '../functions/getCoinPrices';
 import LineChart from '../components/coin/lineChart/LineChart';
 import SelectDays from '../components/coin/selectDays/SelectDays';
 import { settingChartData } from '../functions/settingChartData';
-import PriceType from '../components/coin/priceType/Pricetype';
+import PriceType from '../components/coin/priceType/PriceType';
 
 const CoinPage = () => {
   const {id} = useParams();
