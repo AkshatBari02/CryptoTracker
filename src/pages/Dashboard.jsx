@@ -4,7 +4,7 @@ import Tabs from '../components/dashboard/tabs/Tabs'
 import Search from '../components/dashboard/search/Search';
 import PaginationComponent from '../components/dashboard/pagination/Pagination';
 import BackToTop from '../components/common/backToTop/BackToTop';
-import Loader from '../components/common/loader/loader';
+import Loader from '../components/common/loader/Loader';
 import { get200Coins } from '../functions/get200Coins';
 
 
