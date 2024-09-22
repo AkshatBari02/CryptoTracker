@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Header from '../components/common/Header/Header';
-import Loader from '../components/common/loader/loader';
+import Loader from '../components/common/loader/Loader';
 import { coinObject } from '../functions/convertObject';
 import List from '../components/dashboard/list/List';
 import CoinInfo from '../components/coin/coinInfo/CoinInfo';
