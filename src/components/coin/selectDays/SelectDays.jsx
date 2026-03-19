@@ -1,4 +1,5 @@
-import React from 'react';
+import PropTypes from "prop-types";
+
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
@@ -40,3 +41,8 @@ export default function SelectDays({days,handleDaysChange}) {
     </div>
   );
 }
+
+SelectDays.propTypes = {
+  days: PropTypes.number ,
+  handleDaysChange: PropTypes.func ,
+};

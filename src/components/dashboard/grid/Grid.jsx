@@ -1,4 +1,5 @@
-import React ,{useState} from 'react';
+import {useState} from 'react';
+import PropTypes from "prop-types";
 import './grid.css';
 import TrendingUpRoubdedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoubdedIcon from "@mui/icons-material/TrendingDownRounded";
@@ -71,6 +72,10 @@ const Grid = ({coin}) => {
         </div>
     </Link>
   )
+}
+
+Grid.propTypes = {
+    coin: PropTypes.object 
 }
 
 export default Grid;

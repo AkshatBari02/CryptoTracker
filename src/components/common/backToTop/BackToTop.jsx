@@ -1,4 +1,3 @@
-import React from 'react';
 import './backtotop.css';
 import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
 

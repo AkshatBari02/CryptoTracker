@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from "prop-types";
+
 import './coininfo.css';
 
 const CoinInfo = ({heading,desc}) => {
@@ -21,5 +23,10 @@ const CoinInfo = ({heading,desc}) => {
     </div>
   )
 }
+
+CoinInfo.propTypes = {
+  heading: PropTypes.string ,
+  desc: PropTypes.string 
+};
 
 export default CoinInfo

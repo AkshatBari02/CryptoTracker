@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Header from "../components/common/Header/Header";
+import { useEffect, useState } from "react";
 import Tabs from "../components/dashboard/tabs/Tabs";
 import Button from "../components/common/Button/Button";
 import { get200Coins } from "../functions/get200Coins";
@@ -24,12 +23,11 @@ function Watchlist() {
 
   return (
     <div>
-      <Header/>
       {watchlist?.length > 0 ? (
         <Tabs coins={coins} />
       ) : (
         <div>
-          <h1 style={{ textAlign: "center" }}>
+          <h1 style={{ textAlign: "center", color: "var(--text-color)" }}>
             Sorry, No Items In The Watchlist.
           </h1>
           <div

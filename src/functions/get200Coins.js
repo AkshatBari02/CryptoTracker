@@ -7,7 +7,7 @@ export const get200Coins = () => {
       import.meta.env.VITE_GET_ALL
     )
     .then((response) => {
-      console.log("RESPONSE>>>", response.data);
+      // console.log("RESPONSE>>>", response.data);
       return response.data;
     })
     .catch((error) => {

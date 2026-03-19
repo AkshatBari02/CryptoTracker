@@ -1,4 +1,3 @@
-import React from 'react';
 import './Header.css';
 import AnchorTemporaryDrawer from './Drawer';
 import Button from '../Button/Button';

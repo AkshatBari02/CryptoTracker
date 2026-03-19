@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import PropTypes from "prop-types";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
@@ -38,4 +38,9 @@ export default function TogglePriceType({priceType, handlePriceTypeChange}) {
         </ToggleButtonGroup>
     </div>
   );
+}
+
+TogglePriceType.propTypes = {
+    priceType: PropTypes.string ,
+    handlePriceTypeChange: PropTypes.func ,
 }

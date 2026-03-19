@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from "prop-types";
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
@@ -56,4 +57,8 @@ export default function Tabs({coins}) {
       </TabContext>
     </ThemeProvider>
   );
+}
+
+Tabs.propTypes = {
+  coins: PropTypes.array 
 }

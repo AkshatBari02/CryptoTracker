@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import PropTypes from "prop-types";
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import SelectDays from '../../coin/selectDays/SelectDays';
@@ -69,6 +69,15 @@ const SelectCoins = ({allCoins,
         </div>
         
   )
+}
+
+SelectCoins.propTypes = {
+    allCoins: PropTypes.array ,
+    crypto1: PropTypes.string ,
+    crypto2: PropTypes.string ,
+    onCoinChange: PropTypes.func ,
+    days: PropTypes.number ,
+    handleDaysChange: PropTypes.func ,
 }
 
 export default SelectCoins

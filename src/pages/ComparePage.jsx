@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { get200Coins } from "../functions/get200Coins";
 import { getCoinData } from "../functions/getCoinData";
 import { coinObject } from "../functions/convertObject";
 import { getCoinPrices } from "../functions/getCoinPrices";
 import { settingChartData } from "../functions/settingChartData";
 import Loader from "../components/common/loader/Loader";
-import Header from "../components/common/Header/Header";
 import SelectCoins from "../components/compare/selectCoins/SelectCoins";
 import List from "../components/dashboard/list/List";
 import LineChart from "../components/coin/lineChart/LineChart";
@@ -40,13 +39,13 @@ function Compare() {
       setAllCoins(coins);
       const data1 = await getCoinData(crypto1);
       const data2 = await getCoinData(crypto2);
-      coinObject(setCoin1Data,data1);
-      coinObject(setCoin2Data,data2);
+      coinObject(setCoin1Data, data1);
+      coinObject(setCoin2Data, data2);
       if (data1 && data2) {
         // getPrices
         const prices1 = await getCoinPrices(crypto1, days, priceType);
         const prices2 = await getCoinPrices(crypto2, days, priceType);
-        settingChartData(setChartData, prices1, prices2);
+        settingChartData(setChartData,crypto1, crypto2, prices1, prices2);
         setLoading(false);
       }
     }
@@ -60,22 +59,22 @@ function Compare() {
       setCrypto2(newCrypto2);
       // fetch coin2 data
       const data2 = await getCoinData(newCrypto2);
-      coinObject(setCoin2Data,data2);
+      coinObject(setCoin2Data, data2);
       // fetch prices again
       const prices1 = await getCoinPrices(crypto1, days, priceType);
       const prices2 = await getCoinPrices(newCrypto2, days, priceType);
-      settingChartData(setChartData, prices1, prices2);
+      settingChartData(setChartData, crypto1, newCrypto2, prices1, prices2);
     } else {
       const newCrypto1 = e.target.value;
       // crypto1 is being changed
       setCrypto1(newCrypto1);
       // fetch coin1 data
       const data1 = await getCoinData(newCrypto1);
-      coinObject(setCoin1Data,data1);
+      coinObject(setCoin1Data, data1);
       // fetch coin prices
       const prices1 = await getCoinPrices(newCrypto1, days, priceType);
       const prices2 = await getCoinPrices(crypto2, days, priceType);
-      settingChartData(setChartData, prices1, prices2);
+      settingChartData(setChartData, newCrypto1, crypto2, prices1, prices2);
     }
     setLoading(false);
   };
@@ -86,7 +85,7 @@ function Compare() {
     setDays(newDays);
     const prices1 = await getCoinPrices(crypto1, days, priceType);
     const prices2 = await getCoinPrices(crypto2, days, priceType);
-    settingChartData(setChartData, prices1, prices2);
+    settingChartData(setChartData, crypto1, crypto2, prices1, prices2);
     setLoading(false);
   };
 
@@ -95,13 +94,12 @@ function Compare() {
     setLoading(true);
     setPriceType(newPriceType);
     const prices1 = await getCoinPrices(crypto1, days, newPriceType);
-    const prices2 = await getCoinPrices(crypto2,days,newPriceType);
-    settingChartData(setChartData, prices1, prices2);
+    const prices2 = await getCoinPrices(crypto2, days, newPriceType);
+    settingChartData(setChartData, crypto1, crypto2, prices1, prices2);
     setLoading(false);
   };
   return (
     <div>
-      <Header />
       {loading || !coin1Data?.id || !coin2Data?.id ? (
         <Loader />
       ) : (

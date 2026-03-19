@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
+import PropTypes from "prop-types";
 import './list.css';
 import TrendingUpRoubdedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoubdedIcon from "@mui/icons-material/TrendingDownRounded";
@@ -90,6 +91,10 @@ const List = ({coin}) => {
         </tr>
     </Link>
   )
+}
+
+List.propTypes = {
+    coin: PropTypes.object 
 }
 
 export default List

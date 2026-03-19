@@ -1,5 +1,6 @@
-import React from "react";
 import { Line } from "react-chartjs-2";
+import PropTypes from "prop-types";
+// eslint-disable-next-line no-unused-vars
 import { Chart as ChartJS } from "chart.js/auto"; //Dont get rid of this
 import { convertNumber } from "../../../functions/convertNumbers";
 
@@ -21,7 +22,7 @@ const LineChart = ({ chartData,priceType, multiAxis })=> {
         display: true,
         position: 'left',
         ticks:{
-          callback: function(value,index,ticks){
+          callback: function(value){
             if(priceType === "prices"){
               return '$' + value.toLocaleString()
             }else{
@@ -35,7 +36,7 @@ const LineChart = ({ chartData,priceType, multiAxis })=> {
         display: true,
         position: 'right',
         ticks:{
-          callback: function(value,index,ticks){
+          callback: function(value){
             if(priceType === "prices"){
               return '$' + value.toLocaleString()
             }else{
@@ -49,5 +50,9 @@ const LineChart = ({ chartData,priceType, multiAxis })=> {
 
   return <Line data={chartData} options={options} />;
 }
-
+LineChart.propTypes = {
+  chartData: PropTypes.object ,
+  priceType: PropTypes.string ,
+  multiAxis: PropTypes.bool,
+}
 export default LineChart;

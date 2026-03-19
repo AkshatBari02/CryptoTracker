@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import PropTypes from "prop-types";
 import Pagination from "@mui/material/Pagination";
 
 
@@ -29,3 +29,8 @@ export default function PaginationComponent({page,handlePageChange}) {
     </div>
   );
 }
+
+PaginationComponent.propTypes = {
+  page: PropTypes.number ,
+  handlePageChange: PropTypes.func ,
+};

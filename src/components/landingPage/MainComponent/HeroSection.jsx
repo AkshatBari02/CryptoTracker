@@ -1,4 +1,3 @@
-import React from "react";
 import "./HeroSection.css";
 import Button from "../../common/Button/Button";
 import iphone from "../../../assets/iphone.png";
