@@ -35,6 +35,7 @@ const CoinPage = () => {
       setLoading(true);
       getData();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   async function getData() {
@@ -54,17 +55,21 @@ const CoinPage = () => {
     setDays(event.target.value);
     const prices = await getCoinPrices(id, event.target.value, priceType);
     if (prices.length > 0) {
-      settingChartData(setChartData, prices);
+      settingChartData(setChartData, null, null, prices, null);
       setLoading(false);
     }
   };
 
   const handlePriceTypeChange = async (event, newType) => {
+    if (!newType) {
+      return;
+    }
+
     setLoading(true);
     setPriceType(newType);
     const prices = await getCoinPrices(id, days, newType);
     if (prices.length > 0) {
-      settingChartData(setChartData, prices);
+      settingChartData(setChartData, null, null, prices, null);
       setLoading(false);
     }
   };

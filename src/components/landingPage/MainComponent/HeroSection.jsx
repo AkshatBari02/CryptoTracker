@@ -41,7 +41,7 @@ const HeroSection = () => {
         transition={{duration:0.5, delay:1.5}}
         >
           <Link to={'/dashboard'}><Button text={"Dashboard"} /></Link>
-          <Button text={"Share"} outlined="true" />
+          <Button text={"Share"} outlined={true} />
         </motion.div>
       </div>
       <div className="phone-container">

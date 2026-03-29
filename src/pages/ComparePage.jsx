@@ -30,25 +30,33 @@ function Compare() {
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getData = async () => {
     setLoading(true);
     const coins = await get200Coins();
-    if (coins) {
-      setAllCoins(coins);
-      const data1 = await getCoinData(crypto1);
-      const data2 = await getCoinData(crypto2);
-      coinObject(setCoin1Data, data1);
-      coinObject(setCoin2Data, data2);
-      if (data1 && data2) {
-        // getPrices
-        const prices1 = await getCoinPrices(crypto1, days, priceType);
-        const prices2 = await getCoinPrices(crypto2, days, priceType);
-        settingChartData(setChartData,crypto1, crypto2, prices1, prices2);
-        setLoading(false);
-      }
+    if (!coins) {
+      setLoading(false);
+      return;
     }
+
+    setAllCoins(coins);
+    const data1 = await getCoinData(crypto1);
+    const data2 = await getCoinData(crypto2);
+
+    if (!data1 || !data2) {
+      setLoading(false);
+      return;
+    }
+
+    coinObject(setCoin1Data, data1);
+    coinObject(setCoin2Data, data2);
+    // getPrices
+    const prices1 = await getCoinPrices(crypto1, days, priceType);
+    const prices2 = await getCoinPrices(crypto2, days, priceType);
+    settingChartData(setChartData, crypto1, crypto2, prices1, prices2);
+    setLoading(false);
   };
 
   const onCoinChange = async (e, isCoin2) => {
@@ -59,6 +67,10 @@ function Compare() {
       setCrypto2(newCrypto2);
       // fetch coin2 data
       const data2 = await getCoinData(newCrypto2);
+      if (!data2) {
+        setLoading(false);
+        return;
+      }
       coinObject(setCoin2Data, data2);
       // fetch prices again
       const prices1 = await getCoinPrices(crypto1, days, priceType);
@@ -70,6 +82,10 @@ function Compare() {
       setCrypto1(newCrypto1);
       // fetch coin1 data
       const data1 = await getCoinData(newCrypto1);
+      if (!data1) {
+        setLoading(false);
+        return;
+      }
       coinObject(setCoin1Data, data1);
       // fetch coin prices
       const prices1 = await getCoinPrices(newCrypto1, days, priceType);
@@ -83,14 +99,17 @@ function Compare() {
     const newDays = e.target.value;
     setLoading(true);
     setDays(newDays);
-    const prices1 = await getCoinPrices(crypto1, days, priceType);
-    const prices2 = await getCoinPrices(crypto2, days, priceType);
+    const prices1 = await getCoinPrices(crypto1, newDays, priceType);
+    const prices2 = await getCoinPrices(crypto2, newDays, priceType);
     settingChartData(setChartData, crypto1, crypto2, prices1, prices2);
     setLoading(false);
   };
 
-  const handlePriceTypeChange = async (e) => {
-    const newPriceType = e.target.value;
+  const handlePriceTypeChange = async (_, newPriceType) => {
+    if (!newPriceType) {
+      return;
+    }
+
     setLoading(true);
     setPriceType(newPriceType);
     const prices1 = await getCoinPrices(crypto1, days, newPriceType);
@@ -123,7 +142,7 @@ function Compare() {
               priceType={priceType}
               handlePriceTypeChange={handlePriceTypeChange}
             />
-            <LineChart chartData={chartData} multiAxis={true} />
+            <LineChart chartData={chartData} priceType={priceType} multiAxis={true} />
           </div>
           <CoinInfo heading={coin1Data.name} desc={coin1Data.desc} />
           <CoinInfo heading={coin2Data.name} desc={coin2Data.desc} />
